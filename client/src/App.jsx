@@ -80,7 +80,9 @@ export default function App() {
 
       {state.board ? (
         <>
-          <Board board={state.board} usedSet={usedSet} onTileClick={onTileClick} />
+          <div className="board-wrap">
+            <Board board={state.board} usedSet={usedSet} onTileClick={onTileClick} />
+          </div>
           <div className="actions" style={{ marginTop: 10 }}>
             <button className="secondary" onClick={resetBoardOnly}>Reset Used Tiles</button>
             <button className="secondary" onClick={resetGame}>Reset Board + Scores</button>
