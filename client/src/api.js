@@ -1,5 +1,8 @@
+const BASE = (import.meta.env && import.meta.env.VITE_API_URL ? String(import.meta.env.VITE_API_URL) : '').replace(/\/$/, '');
+
 export async function generateBoard(prompt) {
-  const res = await fetch('/api/generate', {
+  const url = `${BASE}/api/generate`;
+  const res = await fetch(url, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ prompt })
@@ -10,4 +13,3 @@ export async function generateBoard(prompt) {
   }
   return res.json();
 }
-
